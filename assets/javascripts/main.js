@@ -67,13 +67,13 @@ function draw() {
   textSize(24);
   textAlign(LEFT);
   fill("rgb(250,252,250)");
-  text("score: " + score, 30, STATUS_BAR_H * 2);
+  text("Score: " + score, 30, STATUS_BAR_H * 2);
   describe("add score on header");
 
   fill("#FFEB3B");
   textAlign(RIGHT);
   textSize(14);
-  text("Press 'r' to restart", width - 30, STATUS_BAR_H * 2);
+  text("Press 'r' or 'space' to restart", width - 30, STATUS_BAR_H * 2);
   describe("add action tips on header");
 
   strokeWeight(2);
@@ -135,7 +135,7 @@ function draw() {
 
         document.getElementById('score').innerText = 'Score: ' + score;
         if (score % 100 === 0) {
-          increaseLevel()
+          level += 1;
           updateGameLevel()
         }
       }
@@ -143,10 +143,6 @@ function draw() {
   }
 
   describe("deal with collisions");
-}
-
-function increaseLevel() {
-  level += 1;
 }
 
 function buildCircle(item, sWeight, color, cSize) {
@@ -168,14 +164,10 @@ function gameOver() {
 
 function mousePressed() {
   bullets.push({ x: mouseX, y: height - 50 });
-  // stars.push({x: mouseX, y: height - 50});
   describe("spaw a bullet when the user clicks");
 }
 
 function keyPressed() {
-  // if (keyCode === 32) {
-  //   resetGame();
-  // }
-  // describe("when the user clicks `space` keyboard");
-  if (key === "r") resetGame();
+  if (keyCode === 32 || key === "r") resetGame();
+  describe("when the user clicks space/r key");
 }

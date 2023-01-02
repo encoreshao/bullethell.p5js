@@ -4,7 +4,7 @@ A bullet hell game in HTML5 and JS, using the p5.js library. You can play it [he
 
 ### Key Controls
 
-- Press 'r' to restart game
+- Press 'r' or 'space' to restart game
 
 ### Screenshots
 
