@@ -98,22 +98,19 @@ function draw() {
 
   for (let bullet of bullets) {
     bullet.y -= 10;
-
-    buildCircle(bullet, 5, "#E91E63", 10);
+    buildCircle(bullet, 5, "#E91E63", 6);
   }
   describe("update and draw the bullets");
 
   for (let enemy of enemies) {
     enemy.y += level;
 
-    buildCircle(enemy, 15, "#4CAF50", 8);
+    buildCircle(enemy, 5, "#4CAF50", 10);
     if (enemy.y > height) gameOver();
   }
   describe("update and draw enemies");
 
   for (let star of stars) {
-    // star.y += 2;
-
     strokeWeight(2);
     stroke("#F7FDF7");
     fill("#F6F6F6");
@@ -121,8 +118,8 @@ function draw() {
   }
   describe("update and draw stars");
 
-  document.getElementById('level').innerText = 'Level: ' + level;
-  document.getElementById('score').innerText = 'Score: ' + score;
+  document.getElementById('level').innerText = level;
+  document.getElementById('score').innerText = score;
 
   for (let enemy of enemies) {
     for (let bullet of bullets) {
@@ -133,7 +130,7 @@ function draw() {
         addEnemy();
         score += 1;
 
-        document.getElementById('score').innerText = 'Score: ' + score;
+        document.getElementById('score').innerText = score;
         if (score % 100 === 0) {
           level += 1;
           updateGameLevel()
@@ -162,12 +159,18 @@ function gameOver() {
   noLoop();
 }
 
-function mousePressed() {
+function mousePressed() { track(); }
+
+function track() {
   bullets.push({ x: mouseX, y: height - 50 });
   describe("spaw a bullet when the user clicks");
 }
 
 function keyPressed() {
-  if (keyCode === 32 || key === "r") resetGame();
-  describe("when the user clicks space/r key");
+  if (keyIsDown(32) || key === "r") resetGame();
+  describe("Restart (Space or R key)");
+
+  // Fire weapon (Z key or D key)
+  if (keyIsDown(90) || keyIsDown(68)) track();
+  describe("Fire weapon (Z key or D key)");
 }

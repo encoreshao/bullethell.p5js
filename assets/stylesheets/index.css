@@ -6,19 +6,18 @@
 
 :root {
   --color-yellow: #F1C40F;
-  --color-blue: #37DBD0;
+  --color-blue: #0eaa9f;
   --bg: #7f5da1;
   --fg: #ECF0F1;
-  --sidebar: #610687;
+  --sidebar: #641ea1;
 }
 
-/* Page structure */
+/* Page */
 
 html,
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -39,29 +38,27 @@ body {
 
 #sidebar {
   background-color: var(--sidebar);
+  position: absolute;
   display: flex;
-  flex-direction: column;
-  max-height: 100vh;
-  max-width: 260px;
-  overflow-y: scroll;
+  width: 100%;
 }
 
 header,
 main {
-  padding: 16px;
+  padding: 5px 20px;
 }
 
 main {
   flex: 1;
   padding-bottom: 0;
-  padding-top: 0;
+  padding-top: 20px;
 }
-
 
 /* Page content */
 
 canvas {
-  border: 1px solid var(--color-yellow);
+  border: 15px solid var(--color-yellow);
+  border-radius: 10px;
   display: block;
   margin: 0 auto;
 }
@@ -78,12 +75,16 @@ h6 {
 }
 
 ul {
-  list-style: none;
-  padding-left: 0;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  text-align: center;
 }
 
 li {
-  margin: 10px 0;
+  display: inline-block;
+  min-width: 6rem;
+  margin: 0 0.5em;
 }
 
 .control {
